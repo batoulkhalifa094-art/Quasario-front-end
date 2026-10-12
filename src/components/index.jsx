@@ -1,2 +1,2 @@
-export {default as sign_in} from './sign&register/sign_in'
-export {default as register} from './sign&register/register'
+export {default as Nav} from './Nav/nav'
+export {default as Footer} from './Footer/Footer'

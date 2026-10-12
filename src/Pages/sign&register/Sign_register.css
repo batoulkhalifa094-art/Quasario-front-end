@@ -1,0 +1,196 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap");
+
+:root {
+  --yellow: #fad146;
+  --text: #111;
+  --card-bg: rgba(200, 204, 206, 0.85);
+  --input-border: #c9c9c9;
+  --focus: #4d7cfe;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+  color: var(--text);
+}
+
+/* الخلفية */
+.auth-page {
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(12px, 4vw, 32px);
+  background:
+    url("../../../public/Sign_in-Register_Background.jpg") center / cover no-repeat,
+    linear-gradient(180deg, #3a4a4f 0%, #c9a58a 45%, #0d2238 75%, #061320 100%);
+}
+
+/* الكرت */
+.auth-card {
+  width: 100%;
+  max-width: 400px;
+  padding: clamp(24px, 6vw, 40px) clamp(18px, 5vw, 30px);
+  border-radius: clamp(28px, 8vw, 40px);
+  background: var(--card-bg);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+
+/* الهيدر */
+.auth-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.auth-welcome {
+  margin: 0;
+  font-size: clamp(14px, 4vw, 16px);
+}
+
+.auth-brand {
+  color: var(--yellow);
+  font-weight: 500;
+}
+
+.auth-switch {
+  margin: 0;
+  font-size: clamp(12px, 3.4vw, 13px);
+  line-height: 1.4;
+}
+
+.auth-switch a {
+  display: block;
+  color: var(--yellow);
+  text-decoration: none;
+}
+
+.auth-title {
+  margin: 8px 0 24px;
+  font-size: clamp(32px, 9vw, 42px);
+  font-weight: 400;
+  line-height: 1.25;
+}
+
+/* الفورم */
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.field label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: clamp(13px, 3.8vw, 15px);
+}
+
+.field input {
+  width: 100%;
+  height: 54px;
+  padding: 0 14px;
+  border: 1px solid var(--input-border);
+  border-radius: 12px;
+  background: #fff;
+  font-family: inherit;
+  font-size: 14px;
+}
+
+.field input::placeholder {
+  color: #8a8a8a;
+}
+
+.field input:focus {
+  outline: none;
+  border-color: var(--focus);
+}
+
+/* صف حقلين */
+.field-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.field-row .field label {
+  font-size: 14px;
+}
+
+@media (max-width: 360px) {
+  .field-row {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* الزر */
+.auth-btn {
+  margin-top: 16px;
+  height: 54px;
+  border: none;
+  border-radius: 12px;
+  background: var(--yellow);
+  font-family: inherit;
+  font-size: 16px;
+  color: var(--text);
+  cursor: pointer;
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease;
+}
+
+.auth-btn:disabled {
+  background: #bab465;        /* تحويل لون الزر إلى الرمادي النطفي */
+  color: #2e2d2d;             /* جعل لون النص باهتاً */
+  cursor: not-allowed;        /* تغيير شكل مؤشر الماوس إلى علامة المنع 🚫 */
+  box-shadow: none;           /* إزالة الظل لكي يبدو الزر مسطحاً وغير بارز */
+  opacity: 0.6;               /* زيادة شفافية الزر لبيان أنه غير فعال */
+}
+/* فروقات صفحة Sign in */
+.auth-card--signin .auth-form {
+  margin-top: 40px;
+}
+
+.auth-card--signin .auth-btn {
+  margin-top: clamp(30px, 10vw, 60px);
+}
+
+/* الكلاس المسؤول عن إخفاء العنصر برمجياً مع الحفاظ على معايير الوصول (Accessibility) */
+.offscreen {
+    position: absolute;
+    left: -10000px;
+    top: auto;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+}
+
+/* كلاس تنسيق رسالة الخطأ عندما تظهر للمستخدم */
+.errmsg {
+    background-color: #ffe6e6;  
+    color: #c21e1e;           
+    font-weight: bold;         
+    padding: 0.5rem;            
+    margin-bottom: 0.5rem;     
+    border-radius: 4px;         
+    border: 1px solid #c21e1e;  
+}
+
+.instructions {
+    font-size: 0.85rem;          
+    background-color: #f0f7ff;   
+    color: #004085;              
+    border: 1px solid #b8daff;   
+    padding: 0.6rem 0.8rem;      
+    border-radius: 6px;          
+    margin-top: 0.3rem;          
+    margin-bottom: 0.5rem; 
+    line-height: 1.4;            
+}
