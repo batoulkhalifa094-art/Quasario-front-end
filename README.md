@@ -31,8 +31,7 @@ The platform will provide a centralized digital space where businesses can prese
 ## Front-End Team
 
 * **Batoul Khalifa**
-* **Abdulrahman Shaheen**
-* **Abdul Latif Miro**
+* **Abdullhadi Jammal**
 
 ## Technologies
 
