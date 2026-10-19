@@ -22,19 +22,16 @@ body {
 
 /* الخلفية */
 .auth-page {
-  min-height: 100vh;
   min-height: 100dvh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  display: flex;          /* شلنا align-items و justify-content */
   padding: clamp(12px, 4vw, 32px);
   background:
-    url("../../../public/Sign_in-Register_Background.jpg") center / cover no-repeat,
+    url("./Sign_in-Register_Background.jpg") center / cover no-repeat fixed,
     linear-gradient(180deg, #3a4a4f 0%, #c9a58a 45%, #0d2238 75%, #061320 100%);
 }
 
-/* الكرت */
 .auth-card {
+  margin: auto;           /* بيوسّط، وإذا الكرت أطول من الشاشة بيبدأ من فوق بدل ما ينقص */
   width: 100%;
   max-width: 400px;
   padding: clamp(24px, 6vw, 40px) clamp(18px, 5vw, 30px);
@@ -193,4 +190,16 @@ body {
     margin-top: 0.3rem;          
     margin-bottom: 0.5rem; 
     line-height: 1.4;            
+}
+
+@media (max-height: 700px) {
+  .auth-card { padding-top: 20px; padding-bottom: 20px; }
+  .auth-title { margin: 4px 0 12px; font-size: 32px; }
+  .auth-form { gap: 12px; }
+  .field label { margin-bottom: 4px; }
+  .field input,
+  .auth-btn { height: 46px; }
+  .auth-btn { margin-top: 8px; }
+  .auth-card--signin .auth-form { margin-top: 20px; }
+  .auth-card--signin .auth-btn { margin-top: 24px; }
 }

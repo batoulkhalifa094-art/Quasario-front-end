@@ -101,11 +101,13 @@ function Register() {
       });
 
 
-      console.log(response.data);
+      
       setSuccess(true);
     } catch (err) {
       if (!err?.response) {
-        setErrMsg('No Server Server Response');
+        setErrMsg('No Server Response');
+      }  else if (err.response?.status === 422) { 
+        setErrMsg(err.response?.data?.message || 'Username or Email already taken');
       } else if (err.response?.status === 409) {
         setErrMsg('Username Taken');
       } else {
@@ -137,14 +139,14 @@ function Register() {
         <div className="auth-page">
           <div className="auth-card">
             <div className="auth-top">
-              <p ref={errRef} className={errMsg ? "errmsg" : "offscreen"} aria-live="assertive">{errMsg}</p>
+             
 
               <p className="auth-welcome">
                 Welcome to <span className="auth-brand">Quasario</span>
               </p>
               <p className="auth-switch">
                 Have an Account ?
-                <Link to={'./Sign_in'}>Sign in</Link>
+                <Link to={'/Sign_in'}>Sign in</Link>
               </p>
             </div>
 
@@ -154,6 +156,7 @@ function Register() {
               up
             </h1>
 
+               <p ref={errRef} className={errMsg ? "errmsg" : "offscreen"} aria-live="assertive">{errMsg}</p>
             <form className="auth-form" onSubmit={handleRegister}>
               <div className="field">
                 <label htmlFor="userEmail">Enter your email address</label>

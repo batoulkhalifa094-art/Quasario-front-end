@@ -1,12 +1,11 @@
 import axios from 'axios';
 
-const apiClient = axios.create({
+export default axios.create({
   // رابط سيرفر لارافيل الافتراضي مبدئيا
-  baseURL: 'http://127.0.0', 
+  baseURL: import.meta.env.VITE_API_URL, 
   timeout: 20000, // إلغاء الطلب إذا تأخر السيرفر في الرد لأكثر من 20 ثوانٍ
+  withCredentials: true, 
   headers: {
     'Content-Type': 'application/json',
   }
 });
-
-export default apiClient;
