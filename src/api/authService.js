@@ -12,7 +12,9 @@ export const authService = {
   signIn: async (credentials) => {
         await axios.get('/sanctum/csrf-cookie'); 
         return axios.post('/login', credentials);// الرابط الفعلي المتولد: http://127.0.0
-  }
+  },
+
+  getUser: () => axios.get('/api/user'),  
   
 };
 
