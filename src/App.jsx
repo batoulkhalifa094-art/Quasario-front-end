@@ -13,7 +13,7 @@ function App() {
 
         {/* protected routes */}
         {/*  مسارات محمية للمستخدم فقط ( User) */}
-        <Route element={<RequireAuth allowedRoles={['user']} />}>
+        <Route element={<RequireAuth allowedRoles={['user', 'owner', 'admin']} />}>
           <Route path="/Home" element={<Home />} />
           <Route path="/saved-profiles" element={<SavedProfiles />} />
         </Route>
